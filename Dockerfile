@@ -1,11 +1,20 @@
 FROM ubuntu:latest
 MAINTAINER dekmabot@gmail.com
 
+# System
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y --no-install-recommends openssh-server supervisor curl
+RUN apt-get install -y --no-install-recommends openssh-server supervisor curl software-properties-common
 RUN apt-get install -y --no-install-recommends mysql-client nginx composer nano cron libfontconfig1 libxrender1 ffmpeg
-RUN apt-get install -y --no-install-recommends php php-fpm php-curl php-gd php-imap php-imagick php7.1-mbstring php7.1-zip php7.1-dom php-mysql
+
+# php 7.2
+RUN add-apt-repository ppa:ondrej/php -y
+RUN apt-get update && apt-get upgrade -y --allow-unauthenticated
+RUN apt-get install -y --allow-unauthenticated --no-install-recommends php7.2-cli php7.2-fpm php7.2-curl php7.2-gd php7.2-mysql php7.2-mbstring php7.2-dom php-imap php-imagick zip unzip
+
+#RUN apt-get install -y --no-install-recommends --allow-unauthenticated php7.2-cli php7.2-fpm php7.2-curl php7.2-gd php7.2-mysql php7.2-mbstring php7.2-dom php-imap php-imagick zip unzip
+
+# NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
 
