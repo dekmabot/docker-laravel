@@ -10,7 +10,7 @@ RUN apt-get install -y --no-install-recommends mysql-client nginx composer nano 
 # php 7.2
 RUN add-apt-repository ppa:ondrej/php -y
 RUN apt-get update && apt-get upgrade -y --allow-unauthenticated
-RUN apt-get install -y --allow-unauthenticated --no-install-recommends php7.2-cli php7.2-fpm php7.2-curl php7.2-gd php7.2-mysql php7.2-mbstring php7.2-dom php-imap php-imagick zip unzip
+RUN apt-get install -y --allow-unauthenticated --no-install-recommends php7.2-cli php7.2-fpm php7.2-curl php7.2-gd php7.2-mysql php7.2-mbstring php7.2-dom php7.2-zip php-imap php-imagick zip unzip
 
 RUN apt-get autoremove
 
