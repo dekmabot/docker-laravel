@@ -12,12 +12,6 @@ RUN add-apt-repository ppa:ondrej/php -y
 RUN apt-get update && apt-get upgrade -y --allow-unauthenticated
 RUN apt-get install -y --allow-unauthenticated --no-install-recommends php7.2-cli php7.2-fpm php7.2-curl php7.2-gd php7.2-mysql php7.2-mbstring php7.2-dom php-imap php-imagick zip unzip
 
-#RUN apt-get install -y --no-install-recommends --allow-unauthenticated php7.2-cli php7.2-fpm php7.2-curl php7.2-gd php7.2-mysql php7.2-mbstring php7.2-dom php-imap php-imagick zip unzip
-
-# NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get install -y nodejs
-
 RUN apt-get autoremove
 
 RUN mkdir -p /var/run/sshd /var/log/supervisor
